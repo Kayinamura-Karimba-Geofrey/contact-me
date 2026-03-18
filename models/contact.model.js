@@ -30,6 +30,14 @@ const contactSchema = new mongoose.Schema({
   notes: {
     type: String,
     trim: true
+  },
+  isFavorite: {
+    type: Boolean,
+    default: false
+  },
+  profileImage: {
+    type: String,
+    default: ''
   }
 }, {
   timestamps: true
