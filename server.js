@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
+const path = require('path');
 const authRoutes = require('./routes/auth.routes');
 const contactRoutes = require('./routes/contact.routes');
 const { errorHandler } = require('./middleware/error.middleware');
@@ -16,6 +17,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(morgan('dev')); // Request logging
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
 app.use('/api/auth', authRoutes);
